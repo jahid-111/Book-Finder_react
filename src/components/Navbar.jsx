@@ -1,17 +1,15 @@
-
-
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 
 const Navbar = () => {
   return (
     <div>
-      <nav className="py-6 bg-gray-600 ">
+      <nav className=" py-3 bg-gray-600 ">
         <div className="container mx-auto flex items-center justify-between gap-x-6 max-w-7xl">
           <a href="/">
             <img
-              className="max-w-[100px] md:max-w-[165px]"
-              src="./assets/lws-logo-en.svg"
+              className="max-w-[70px] rounded-full md:max-w-[70px]"
+              src="https://png.pngtree.com/png-vector/20190505/ourmid/pngtree-vector-book-icon-png-image_1022249.jpg"
               alt="Lws"
             />
           </a>
