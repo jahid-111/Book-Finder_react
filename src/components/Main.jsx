@@ -12,6 +12,7 @@ const BooksData = [
     By: "Jon Duckett",
     price: "56",
     ratting: "4.7",
+    isFav: false,
   },
   {
     id: crypto.randomUUID(),
@@ -21,6 +22,7 @@ const BooksData = [
     By: "john Doe",
     price: "67",
     ratting: "4.3",
+    isFav: false,
   },
   {
     id: crypto.randomUUID(),
@@ -30,6 +32,8 @@ const BooksData = [
     By: "Jahid",
     price: "99.99",
     ratting: "5",
+
+    isFav: false,
   },
   {
     id: crypto.randomUUID(),
@@ -39,6 +43,7 @@ const BooksData = [
     By: "Jon",
     price: "59",
     ratting: "4.9",
+    isFav: false,
   },
   {
     id: crypto.randomUUID(),
@@ -48,6 +53,7 @@ const BooksData = [
     By: "Duckett",
     price: "89",
     ratting: "4.7",
+    isFav: false,
   },
   {
     id: crypto.randomUUID(),
@@ -57,6 +63,8 @@ const BooksData = [
     By: "Developer",
     price: "120",
     ratting: "5",
+
+    isFav: false,
   },
   {
     id: crypto.randomUUID(),
@@ -66,6 +74,7 @@ const BooksData = [
     By: "Browser",
     price: "30",
     ratting: "4.9",
+    isFav: false,
   },
   {
     id: crypto.randomUUID(),
@@ -75,6 +84,8 @@ const BooksData = [
     By: "Java Script",
     price: "20",
     ratting: "4",
+
+    isFav: false,
   },
   {
     id: crypto.randomUUID(),
@@ -84,18 +95,38 @@ const BooksData = [
     By: "Browser",
     price: "20",
     ratting: "5",
+
+    isFav: false,
   },
 ];
 
 const Main = () => {
   const [books, setBooks] = useState(BooksData);
 
-  //   console.log(books[0].name);
+  const [addedCart, setAddedCart] = useState([]);
 
+  const handleClickCart = (bookID) => {
+    const isBookInCart = addedCart.includes(bookID);
+
+    if (!isBookInCart) {
+      setAddedCart([...addedCart, bookID]);
+    }
+  };
+
+  function handleFavorite(id) {
+    const bookIndex = books.findIndex((book) => book.id === id);
+    const newBook = [...books];
+    newBook[bookIndex].isFav = !newBook[bookIndex].isFav;
+    setBooks(newBook);
+  }
   return (
     <main>
       <Header></Header>
-      <Books books={books}></Books>
+      <Books
+        books={books}
+        addCartBtn={[handleClickCart, addedCart]}
+        isFav={handleFavorite}
+      ></Books>
     </main>
   );
 };
