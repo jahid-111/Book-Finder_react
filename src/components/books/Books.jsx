@@ -2,11 +2,11 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
 import { FaHeart } from "react-icons/fa";
+import { IoMdStarHalf } from "react-icons/io";
+import { MdOutlineStar } from "react-icons/md";
 
-// eslint-disable-next-line react/prop-types
 const Books = ({ books, addCartBtn, isFav }) => {
   const [clickCart, addedCart] = addCartBtn;
-  // console.log(books[0].isFav);
   return (
     <div>
       <div className="container mx-auto grid  grid-cols-1 gap-8 max-w-7xl md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -21,17 +21,26 @@ const Books = ({ books, addCartBtn, isFav }) => {
 
             <div className="space-y-3">
               <h4 className="text-lg font-bold lg:text-xl">{book.name}</h4>
-              <p className="text-xs lg:text-sm">
-                By : <span>{book.By}</span>
-              </p>
+              <div className="text-xs font-semibold lg:text-sm flex justify-between">
+                <p>
+                  {" "}
+                  By : <span>{book.By}</span>
+                </p>
+                <p>
+                  {" "}
+                  Year : <span>{book.year}</span>
+                </p>
+              </div>
 
               <div className="flex items-center justify-between">
                 <h4 className="text-lg font-bold lg:text-xl">$ {book.price}</h4>
                 <div className="flex items-center space-x-1">
-                  <img src="./assets/star.svg" />
-                  <img src="./assets/star.svg" />
-                  <img src="./assets/star.svg" />
-                  <img src="./assets/star.svg" />
+                  <MdOutlineStar className=" text-orange-500"></MdOutlineStar>
+                  <MdOutlineStar className=" text-orange-500"></MdOutlineStar>
+                  <MdOutlineStar className=" text-orange-500"></MdOutlineStar>
+                  <MdOutlineStar className=" text-orange-500"></MdOutlineStar>
+                  <IoMdStarHalf className=" text-orange-400"></IoMdStarHalf>
+
                   <span className="text-xs lg:text-sm">{book.ratting}</span>
                 </div>
               </div>
